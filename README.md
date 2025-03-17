@@ -63,7 +63,7 @@ Update this application with the necessary changes to allow users to take multip
    ```
 
 5. **Code:**
-    Local application should be live at on your simulator - time to code!
+    Local application should be live on your simulator - time to code!
 
 ## Delivery
 
@@ -85,4 +85,4 @@ Did you use AI tools to help you with this assignment?
 
 It's a brave new world of software development and leveraging these tools are imperative.\
 Let us know which tools you used and how they helped you find a solution.\
-*P.S. This project is setup to support the use of https://v0.dev/ ;)*
+
