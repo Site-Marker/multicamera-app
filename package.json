@@ -1,5 +1,5 @@
 {
-  "name": "my-expo-app",
+  "name": "multicamera-app",
   "version": "1.0.0",
   "scripts": {
     "android": "expo start --android",
@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "expo": "^52.0.39",
+    "expo-camera": "~16.0.18",
+    "expo-maps": "^0.7.3",
     "expo-status-bar": "~2.0.1",
     "nativewind": "latest",
     "react": "18.3.1",
