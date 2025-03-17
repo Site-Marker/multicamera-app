@@ -1,4 +1,4 @@
-# Rails Take Home Test - Add Sharing
+# React Native Take Home Test - Multicamera Experience
 
 This repository contains an Expo React Natvie application designed to showcase your understanding of core React Native concepts and feature building. 
 
@@ -13,10 +13,10 @@ This repository contains an Expo React Natvie application designed to showcase y
 ## Overview
 
 This is a react native app for taking multiple pictures.\
-Users can create enter the camera view - start taking pictures and toggle the map view to get context on their location.\
+Users can create enter the camera view - start taking pictures and view those pictures.\
 Currently, **you have a bare-bones react native typescript/nativewind app.**
 
-**We want the ability for users to take multiple pictures in a single session - view those pictures - and toggle the map to see what their current location is.**\
+**We want the ability for users to take multiple pictures in a single session and be able to view those pictures.**\
 
 * **Tech Stack:**
     * [Expo](https://expo.dev/)  
@@ -35,6 +35,7 @@ Update this application with the necessary changes to allow users to take multip
 
 ### Extra credit
 
+- Add the ability to toggle a map view and see where they are on the map.
 - Include Technical Documentation about your changes.
 - Show elements on the map that represent the location of the picture taken.
 - Include ability to zoom and change to front-facing camera.
