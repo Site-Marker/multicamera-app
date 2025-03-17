@@ -22,7 +22,7 @@ Currently, **you have a bare-bones react native typescript/nativewind app.**
     * [Expo](https://expo.dev/)  
     * [React Native](https://reactnative.dev/)
     * [Expo Camera](https://docs.expo.dev/versions/latest/sdk/camera/)
-    * [Expo Maps](https://docs.expo.dev/versions/latest/sdk/maps/)
+    * [React Native Maps](https://docs.expo.dev/versions/latest/sdk/map-view/)
     * [NativeWind](https://www.nativewind.dev/)
      
 * **Example finished Application**
@@ -59,7 +59,7 @@ Update this application with the necessary changes to allow users to take multip
 4. **Install things:**
    ```bash
    npm install
-   npm run:ios
+   npm run ios
    ```
 
 5. **Code:**
@@ -72,6 +72,10 @@ If you decided to include Technical Documentation of your changes please include
 Please spend no-more **2 hours on the assignment**.
 
 ### Happing coding! Looking forward to see what you came up with :)
+
+## Hints
+
+Camera usage requires permission.
 
 **AI/LLMs:**
 

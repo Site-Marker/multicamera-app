@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+
 import './global.css';
 import { View } from 'react-native';
 import { Pressable, Text } from 'react-native';
