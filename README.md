@@ -46,7 +46,7 @@ Update this application with the necessary changes to allow users to take multip
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/Site-Marker/multicamera-app.git
-   cd multicamer-app
+   cd multicamera-app
    ```
 2. **Checkout a new branch:**
    ```bash
