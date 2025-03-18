@@ -31,7 +31,8 @@ Currently, **you have a bare-bones react native typescript/nativewind app.**
 
 ## The Assignment
 
-Update this application with the necessary changes to allow users to take multiple pictures in a single session, view those pictures, remove those pictures and toggle a map view that show's their current location.
+Update this application with the necessary changes to allow users to take multiple pictures in a single session, view those pictures, remove those pictures and toggle a map view that show's their current location. 
+Create components and structure the app the same way you would to with a Production app. 
 
 ### Extra credit
 

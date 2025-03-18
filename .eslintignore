@@ -1,0 +1,4 @@
+/.expo
+node_modules
+.eslintrc.js
+nativewind-env.d.ts

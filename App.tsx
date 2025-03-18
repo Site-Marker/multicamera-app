@@ -8,9 +8,11 @@ export default function App() {
   return (
     <View className="flex-1 items-center justify-center">
       <StatusBar style="auto" />
-      <Pressable className="bg-black rounded-full text-white p-4" onPress={() => {
-        console.log('pressed');
-      }}>
+      <Pressable
+        className="rounded-full bg-black p-4 text-white"
+        onPress={() => {
+          console.log('pressed');
+        }}>
         <Text className="text-white">Open Camera</Text>
       </Pressable>
     </View>
