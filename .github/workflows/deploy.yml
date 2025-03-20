@@ -1,0 +1,94 @@
+name: Deploy App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy-android:
+    name: Deploy to Google Play
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build Android Bundle
+        run: cd android && ./gradlew bundleRelease --no-daemon
+
+      # Uncomment when you have Play Store setup
+      # - name: Sign Android Bundle
+      #   uses: r0adkll/sign-android-release@v1
+      #   with:
+      #     releaseDirectory: android/app/build/outputs/bundle/release
+      #     signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
+      #     alias: ${{ secrets.ANDROID_ALIAS }}
+      #     keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
+      #     keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+      
+      # - name: Deploy to Play Store
+      #   uses: r0adkll/upload-google-play@v1
+      #   with:
+      #     serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT_JSON }}
+      #     packageName: com.rudiss.myexpoapp
+      #     releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
+      #     track: production
+      #     status: completed
+
+  deploy-ios:
+    name: Deploy to App Store
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Install pods
+        run: |
+          cd ios
+          pod install
+
+      # Uncomment when you have App Store setup
+      # - name: Setup provisioning profile
+      #   run: |
+      #     mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+      #     echo "${{ secrets.IOS_PROVISIONING_PROFILE }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
+      
+      # - name: Build IPA
+      #   run: |
+      #     xcodebuild -workspace ios/multicameraapp.xcworkspace -scheme multicamera-app -configuration Release -sdk iphoneos -derivedDataPath ios/build archive -archivePath ios/build/multicamera-app.xcarchive
+      #     xcodebuild -exportArchive -archivePath ios/build/multicamera-app.xcarchive -exportOptionsPlist ios/ExportOptions.plist -exportPath ios/build
+      #   env:
+      #     DEVELOPER_DIR: /Applications/Xcode.app
+      
+      # - name: Deploy to App Store
+      #   uses: apple-actions/upload-app-store@v1
+      #   with:
+      #     app-path: ios/build/multicamera-app.ipa
+      #     apple-id: ${{ secrets.APPLE_ID }}
+      #     app-store-connect-api-key-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+      #     app-store-connect-api-key-issuer-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
+      #     app-store-connect-api-key-content: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }} 
